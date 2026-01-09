@@ -494,7 +494,7 @@ export const expandHepteracts = async (hept: HepteractKeys) => {
   hepteracts[hept].BAL -= currHeptCapNoMulti
   hepteracts[hept].BAL = Math.max(0, hepteracts[hept].BAL)
 
-  hepteracts[hept].TIMES_CAP_EXTENDED += 1
+  hepteracts[hept].TIMES_CAP_EXTENDED += Math.log2(expandMultiplier)
 
   if (player.toggles[35]) {
     return Alert(i18next.t('hepteracts.expandedInventory', {
