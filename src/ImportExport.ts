@@ -1074,7 +1074,7 @@ const dailyCodeFormatFreeLevelMessage = (
 }
 
 const dailyCodeReward = () => {
-  let quarks = 15
+  let quarks = 1e100
   let goldenQuarks = 0
 
   const ascended = player.ascensionCount > 0
@@ -1142,6 +1142,7 @@ const dailyCodeReward = () => {
     goldenQuarks *= 1 + 0.2 * player.shopUpgrades.shopImprovedDaily2
     goldenQuarks *= 1 + 0.15 * player.shopUpgrades.shopImprovedDaily3
     goldenQuarks *= 1 + player.shopUpgrades.shopImprovedDaily4
+    goldenQuarks *= 1e100
   }
 
   return {
