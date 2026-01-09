@@ -352,10 +352,7 @@ export const revealStuff = () => {
     DOMCacheGetOrSet('platonicCubeOpensInput').style.display = 'none'
   }
 
-  ;(player.highestSingularityCount >= 50 && player.singularityCount < player.highestSingularityCount)
-      || player.highestSingularityCount >= 150 // Auto Cube Upgrades
-    ? DOMCacheGetOrSet('toggleAutoCubeUpgrades').style.display = 'block'
-    : DOMCacheGetOrSet('toggleAutoCubeUpgrades').style.display = 'none'
+  ;DOMCacheGetOrSet('toggleAutoCubeUpgrades').style.display = 'block'
   ;(player.highestSingularityCount >= 100 && player.singularityCount < player.highestSingularityCount)
       || player.highestSingularityCount >= 200 // Auto Platonic Upgrades
     ? DOMCacheGetOrSet('toggleAutoPlatonicUpgrades').style.display = 'block'
