@@ -1643,6 +1643,7 @@ export const dailyResetCheck = () => {
   const m = now.getMinutes()
   const s = now.getSeconds()
   player.dayTimer = 60 * 60 * 24 - 60 * 60 * h - 60 * m - s
+  player.dailyCodeUsed = false
 
   // Daily is not reset even if it is set to a past time.
   // If the daily is not reset, the data may have been set to a future time.
@@ -1651,7 +1652,6 @@ export const dailyResetCheck = () => {
 
     forcedDailyReset(true)
     player.dailyPowderResetUses = 1 + player.shopUpgrades.extraWarp
-    player.dailyCodeUsed = false
 
     DOMCacheGetOrSet('cubeQuarksOpenRequirement').style.display = 'block'
     if (player.challengecompletions[11] > 0) {
