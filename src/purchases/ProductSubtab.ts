@@ -2,7 +2,7 @@ import { format } from '../Synergism'
 import { Alert, Notification } from '../UpdateHTML'
 import { memoize } from '../Utility'
 import { coinProducts } from './CartTab'
-import { addToCart } from './CartUtil'
+import {updatePseudoCoins} from "./UpgradesSubtab";
 
 const productContainer = document.querySelector<HTMLElement>('#pseudoCoins > #productContainer')
 
@@ -20,8 +20,8 @@ const clickHandler = (e: HTMLElementEventMap['click']) => {
     return
   }
 
-  addToCart(productId)
-  Notification(`Added ${productName} to the cart!`)
+  updatePseudoCoins();
+  Notification(`Added ${productName}!`)
 }
 
 export const initializeProductPage = memoize(() => {

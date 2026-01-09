@@ -203,37 +203,8 @@ async function initializePayPal_OneTime (selector: string | HTMLElement) {
       label: 'paypal'
     },
 
+    // @ts-ignore
     async createOrder () {
-      const fd = new FormData()
-
-      for (const product of getProductsInCart()) {
-        if (product.quantity > 0 && product.subscription) {
-          throw new TypeError('skipping')
-        }
-
-        fd.set(product.id, `${product.quantity}`)
-      }
-
-      fd.set('tosAgree', radioTOSAgree.checked ? 'on' : 'off')
-      const url = 'https://synergism.cc/paypal/orders/create'
-
-      const response = await fetch(url, {
-        method: 'POST',
-        body: fd
-      })
-
-      const orderData = await response.json()
-
-      if (orderData.id) {
-        return orderData.id
-      }
-
-      const errorDetail = orderData?.details?.[0]
-      const errorMessage = errorDetail
-        ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-        : JSON.stringify(orderData)
-
-      throw new Error(errorMessage)
     },
 
     async onApprove (data, actions) {
@@ -319,7 +290,7 @@ async function exponentialPseudoCoinBalanceCheck () {
 
   for (const delay of delays) {
     await sleep(delay)
-    const coins = await updatePseudoCoins()
+    const coins = updatePseudoCoins()
 
     if (lastCoinAmount !== coins) {
       break
