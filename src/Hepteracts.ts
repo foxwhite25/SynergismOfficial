@@ -452,7 +452,7 @@ export const craftHepteracts = async (hept: HepteractKeys, max = false) => {
 }
 
 export const expandHepteracts = async (hept: HepteractKeys) => {
-  const expandMultiplier = 2
+  const expandMultiplier = 256
   const currentBalance = hepteracts[hept].BAL
   const heptCap = getFinalHepteractCap(hept)
   const currHeptCapNoMulti = getHepteractCap(hept)
