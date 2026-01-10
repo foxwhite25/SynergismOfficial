@@ -2484,13 +2484,6 @@ export const updateAllTick = (): void => {
   a *= getHepteractEffects('accelerator').acceleratorMultiplier
   a = Math.floor(Math.min(1e100, a))
 
-  if (player.corruptions.used.viscosity >= 15) {
-    a = Math.pow(a, 0.2)
-  }
-  if (player.corruptions.used.viscosity >= 16) {
-    a = 1
-  }
-
   G.freeAccelerator = a
   G.totalAccelerator += G.freeAccelerator
 
@@ -2659,13 +2652,6 @@ export const updateAllMultiplier = (): void => {
   a *= G.challenge15Rewards.multiplier.value
   a *= getHepteractEffects('multiplier').multiplierMultiplier
   a = Math.floor(Math.min(1e100, a))
-
-  if (player.corruptions.used.viscosity >= 15) {
-    a = Math.pow(a, 0.2)
-  }
-  if (player.corruptions.used.viscosity >= 16) {
-    a = 1
-  }
 
   G.freeMultiplier = a
   G.totalMultiplier = G.freeMultiplier + player.multiplierBought
