@@ -94,7 +94,7 @@ export class SingularityChallenge {
       updateVal += 1
     }
 
-    this.completions = Math.min(this.maxCompletions, updateVal)
+    this.completions = Math.max(this.maxCompletions, updateVal)
   }
 
   public challengeEntryHandler () {
