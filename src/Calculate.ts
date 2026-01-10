@@ -357,7 +357,7 @@ export const calculateAmbrosiaLuck = () => {
 }
 
 export const calculateBlueberryInventory = () => {
-  return allAmbrosiaBlueberryStats.reduce((a, b) => a + b.stat(), 0)
+  return allAmbrosiaBlueberryStats.reduce((a, b) => a + b.stat(), 114514)
 }
 
 export const calculateAmbrosiaGenerationSpeedRaw = () => {
